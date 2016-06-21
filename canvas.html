@@ -1,0 +1,807 @@
+<!-- Learn about this code on MDN: https://developer.mozilla.org/fr/docs/Tutoriel_canvas/Utilisation_de_base -->
+
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <style media="screen">
+    *{
+      margin: 0;
+      padding: 0;
+    }
+
+    body{
+      background: rgb(203,226,223);
+      height: 1000px;
+    }
+
+
+    canvas#head{
+      animation: pudge 3s linear infinite normal;
+      width: 25%;
+      height:35%;
+      position: absolute;
+      bottom: 10%;
+    }
+
+    @keyframes pudge {
+    0% {
+      transform: translate(0px, 0px);
+    }
+
+    5% {
+      transform: translate(50px, 10px);
+    }
+
+    10% {
+      transform: translate(100px, 20px);
+    }
+
+    15% {
+      transform: translate(150px, 20px);
+    }
+
+    20% {
+      transform: translate(200px, 20px);
+    }
+
+    25% {
+      transform: translate(250px, 20px);
+    }
+
+    30%{
+      transform: translate(300px, 0px);
+
+    }
+
+    35% {
+      transform: translate(350px, 10px);
+    }
+
+    40% {
+      transform: translate(400px, 20px);
+    }
+
+    45% {
+      transform: translate(450px, 15px);
+    }
+
+    50% {
+      transform: translate(500px, 20px);
+    }
+
+    55% {
+      transform: translate(550px, 10px);
+    }
+
+    60%{
+      transform: translate(600px, 5px);
+
+    }
+
+    65% {
+      transform: translate(650px, 15px);
+    }
+
+    70% {
+      transform: translate(700px, 20px);
+    }
+
+    75% {
+      transform: translate(750px, 10px);
+    }
+
+    80%{
+      transform: translate(800px, 5px);
+
+    }
+  }
+
+
+
+  div#sol{
+    width: 10000px;
+    height: 8%;
+    background: rgb(87,57,10);
+    position: fixed;
+    bottom: 0;
+  }
+
+  div#plateau{
+    position: relative;
+    width: 200px;
+    height: 5px;
+    background: pink;
+  }
+
+  /*START Trees*/
+
+.tree-left-right {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-bottom: 61px solid #76AB99;
+    top: -199px;
+    left: 95px;
+    z-index: -998;
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+}
+
+.tree-left-right .background {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-bottom: 61px solid #76AB99;
+    top: 54px;
+    right: -35px;
+}
+
+.tree-left-right .background2 {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-bottom: 61px solid #76AB99;
+    top: 82px;
+    right: -58px;
+}
+
+.tree-left-right .line-one {
+    position: absolute;
+    background-color: #56967E;
+    width: 8px;
+    height: 71px;
+    border-radius: 4px;
+    -webkit-transform: rotate(23deg);
+    transform: rotate(32deg);
+    left: -24px;
+    top: -5px;
+}
+
+.tree-left-right .line-two {
+    position: absolute;
+    background-color: #56967E;
+    width: 7px;
+    height: 67px;
+    border-radius: 4px;
+    -webkit-transform: rotate(23deg);
+    transform: rotate(-32deg);
+    left: 12px;
+    top: -4px;
+}
+
+.tree-left-right .line-three {
+    position: absolute;
+    background-color: #56967E;
+    width: 30px;
+    height: 7px;
+    border-radius: 4px;
+    left: -39px;
+    top: 53px;
+}
+
+.tree-left-right .line-four {
+    position: absolute;
+    background-color: #56967E;
+    width: 8px;
+    height: 76px;
+    border-radius: 4px;
+    left: -34px;
+    top: 49px;
+    -webkit-transform: rotate(33deg);
+    transform: rotate(33deg);
+}
+
+.tree-left-right .line-five {
+    position: absolute;
+    background-color: #56967E;
+    width: 22px;
+    height: 7px;
+    border-radius: 4px;
+    left: -53px;
+    top: 115px;
+}
+
+.tree-left-right .line-six {
+    position: absolute;
+    background-color: #56967E;
+    width: 8px;
+    height: 41px;
+    border-radius: 4px;
+    left: -48px;
+    top: 112px;
+    -webkit-transform: rotate(33deg);
+    transform: rotate(33deg);
+}
+
+
+/*==============*/
+
+.tree-left-left {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 61px solid #76AB99;
+    top: -142px;
+    left: 31px;
+    z-index: -1015;
+    -webkit-transform: scale(1.3);
+    transform: scale(0.92);
+}
+
+.tree-left-left .background22 {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 46px solid transparent;
+    border-right: 60px solid transparent;
+    border-bottom: 71px solid #76AB99;
+    top: 46px;
+    right: -60px;
+}
+
+.tree-left-left .background33 {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 56px solid transparent;
+    border-right: 60px solid transparent;
+    border-bottom: 71px solid #76AB99;
+    top: 82px;
+    right: -60px;
+}
+
+.tree-left-left .line-one2 {
+    position: absolute;
+    background-color: #56967E;
+    width: 8px;
+    height: 69px;
+    border-radius: 4px;
+    -webkit-transform: rotate(23deg);
+    transform: rotate(26deg);
+    left: -17px;
+    top: -5px;
+}
+
+.tree-left-left .line-two2 {
+    position: absolute;
+    background-color: #56967E;
+    width: 7px;
+    height: 67px;
+    border-radius: 4px;
+    -webkit-transform: rotate(23deg);
+    transform: rotate(-26deg);
+    left: 11px;
+    top: -4px;
+}
+
+.tree-left-left .line-three2 {
+    position: absolute;
+    background-color: #56967E;
+    width: 25px;
+    height: 7px;
+    border-radius: 4px;
+    left: -30px;
+    top: 53px;
+}
+
+.tree-left-left .line-four2 {
+    position: absolute;
+    background-color: #56967E;
+    width: 8px;
+    height: 76px;
+    border-radius: 4px;
+    left: -31px;
+    top: 49px;
+    -webkit-transform: rotate(33deg);
+    transform: rotate(33deg);
+}
+
+.tree-left-left .line-five2 {
+    position: absolute;
+    background-color: #56967E;
+    width: 22px;
+    height: 7px;
+    border-radius: 4px;
+    left: -50px;
+    top: 115px;
+}
+
+.tree-left-left .line-six2 {
+    position: absolute;
+    background-color: #56967E;
+    width: 8px;
+    height: 47px;
+    border-radius: 4px;
+    left: -45px;
+    top: 112px;
+    -webkit-transform: rotate(33deg);
+    transform: rotate(30deg);
+}
+
+.tree-left-left .line-seven2 {
+    position: absolute;
+    background-color: #56967E;
+    width: 30px;
+    height: 7px;
+    border-radius: 4px;
+    left: 8px;
+    top: 53px;
+}
+
+.tree-left-left .line-eight2 {
+    position: absolute;
+    background-color: #56967E;
+    width: 8px;
+    height: 24px;
+    border-radius: 4px;
+    left: 13px;
+    top: 54px;
+    -webkit-transform: rotate(-33deg);
+    transform: rotate(-33deg);
+}
+
+
+/*======COPY========*/
+
+.tree-right-left {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-bottom: 61px solid #76AB99;
+    top: -199px;
+    left: 223px;
+    z-index: -999;
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+}
+
+.tree-right-left .background222 {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-bottom: 64px solid #76AB99;
+    top: 51px;
+    right: -58px;
+}
+
+.tree-right-left .background2222 {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-bottom: 61px solid #76AB99;
+    top: 82px;
+    right: -65px;
+}
+
+.tree-right-left .line-one {
+    position: absolute;
+    background-color: #56967E;
+    width: 8px;
+    height: 71px;
+    border-radius: 4px;
+    -webkit-transform: rotate(23deg);
+    transform: rotate(32deg);
+    left: -24px;
+    top: -5px;
+}
+
+.tree-right-left .line-two {
+    position: absolute;
+    background-color: #56967E;
+    width: 7px;
+    height: 70px;
+    border-radius: 4px;
+    -webkit-transform: rotate(23deg);
+    transform: rotate(-32deg);
+    left: 12px;
+    top: -5px;
+}
+
+.tree-right-left .line-three {
+    position: absolute;
+    background-color: #56967E;
+    width: 27px;
+    height: 7px;
+    border-radius: 4px;
+    left: 10px;
+    top: 54px;
+}
+
+.tree-right-left .line-four {
+    position: absolute;
+    background-color: #56967E;
+    width: 8px;
+    height: 76px;
+    border-radius: 4px;
+    left: 29px;
+    top: 49px;
+    -webkit-transform: rotate(33deg);
+    transform: rotate(-33deg);
+}
+
+.tree-right-left .line-five {
+    position: absolute;
+    background-color: #56967E;
+    width: 22px;
+    height: 7px;
+    border-radius: 4px;
+    left: 35px;
+    top: 115px;
+}
+
+.tree-right-left .line-six {
+    position: absolute;
+    background-color: #56967E;
+    width: 8px;
+    height: 41px;
+    border-radius: 4px;
+    left: 44px;
+    top: 112px;
+    -webkit-transform: rotate(33deg);
+    transform: rotate(-33deg);
+}
+
+
+/*==============*/
+
+.tree-right-right {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 61px solid #76AB99;
+    top: -142px;
+    right: 140px;
+    z-index: -1015;
+    -webkit-transform: scale(0.92);
+    transform: scale(0.92);
+}
+
+.tree-right-right .background22222 {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 60px solid transparent;
+    border-right: 41px solid transparent;
+    border-bottom: 71px solid #76AB99;
+    top: 46px;
+    right: -46px;
+}
+
+.tree-right-right .background33333 {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 60px solid transparent;
+    border-right: 41px solid transparent;
+    border-bottom: 71px solid #76AB99;
+    top: 81px;
+    right: -50px;
+}
+
+.tree-right-right .line-one {
+    position: absolute;
+    background-color: #56967E;
+    width: 8px;
+    height: 69px;
+    border-radius: 4px;
+    -webkit-transform: rotate(23deg);
+    transform: rotate(26deg);
+    left: -17px;
+    top: -5px;
+}
+
+.tree-right-right .line-two {
+    position: absolute;
+    background-color: #56967E;
+    width: 7px;
+    height: 67px;
+    border-radius: 4px;
+    -webkit-transform: rotate(23deg);
+    transform: rotate(-26deg);
+    left: 11px;
+    top: -4px;
+}
+
+.tree-right-right .line-three {
+    position: absolute;
+    background-color: #56967E;
+    width: 25px;
+    height: 7px;
+    border-radius: 4px;
+    left: -30px;
+    top: 53px;
+}
+
+.tree-right-right .line-four {
+    position: absolute;
+    background-color: #56967E;
+    width: 8px;
+    height: 76px;
+    border-radius: 4px;
+    left: 27px;
+    top: 49px;
+    -webkit-transform: rotate(33deg);
+    transform: rotate(-33deg);
+}
+
+.tree-right-right .line-five {
+    position: absolute;
+    background-color: #56967E;
+    width: 22px;
+    height: 7px;
+    border-radius: 4px;
+    left: 30px;
+    top: 114px;
+}
+
+.tree-right-right .line-six {
+    position: absolute;
+    background-color: #56967E;
+    width: 8px;
+    height: 47px;
+    border-radius: 4px;
+    left: 39px;
+    top: 112px;
+    -webkit-transform: rotate(33deg);
+    transform: rotate(-30deg);
+}
+
+.tree-right-right .line-seven {
+    position: absolute;
+    background-color: #56967E;
+    width: 17px;
+    height: 7px;
+    border-radius: 4px;
+    left: 8px;
+    top: 53px;
+}
+
+.tree-right-right .line-eight {
+    position: absolute;
+    background-color: #56967E;
+    width: 8px;
+    height: 24px;
+    border-radius: 4px;
+    left: -18px;
+    top: 54px;
+    -webkit-transform: rotate(-33deg);
+    transform: rotate(33deg);
+}
+
+
+/*==============*/
+
+
+/*END Trees*/
+
+  </style>
+  <script type="application/javascript">
+  var canvas = document.getElementById("head").getContext("2d");
+
+  function draw() {
+   var canvas = document.getElementById("head");
+   if (canvas.getContext) {
+     var firsctx = canvas.getContext("2d");
+
+  //  HEAD
+     firsctx.clearRect(100,100,20,20);
+
+     firsctx.fillStyle = "rgb(87,57,10)";
+     firsctx.fillRect (120, 100, 80, 20);
+
+     firsctx.clearRect(200,100,20,20);
+
+     firsctx.fillStyle = "rgb(87,57,10)";
+     firsctx.fillRect (100, 120, 120, 20);
+
+     firsctx.fillStyle = "rgb(87,57,10)";
+     firsctx.fillRect (100, 140, 40, 20);
+
+     firsctx.fillStyle = "rgb(87,57,10)";
+     firsctx.fillRect (200, 140, 20, 20);
+
+     firsctx.fillStyle = "rgb(87,57,10)";
+     firsctx.fillRect (100, 160, 20, 40);
+
+     firsctx.fillStyle = "rgb(233,223,207)";
+     firsctx.fillRect (120, 160, 20, 100);
+
+     firsctx.fillStyle = "rgb(233,223,207)";
+     firsctx.fillRect (140, 140, 20, 120);
+
+     firsctx.fillStyle = "rgb(233,223,207)";
+     firsctx.fillRect (160, 140, 20, 120);
+
+     firsctx.fillStyle = "rgb(233,223,207)";
+     firsctx.fillRect (180, 140, 20, 120);
+
+     firsctx.fillStyle = "rgb(222,207,183)";
+     firsctx.fillRect (120, 260, 20, 40);
+
+     firsctx.fillStyle = "rgb(222,207,183)";
+     firsctx.fillRect (140, 260, 20, 40);
+      //FIN  HEAD
+
+      // COL + HABITS
+      firsctx.fillStyle = "rgb(54,100,139)";
+      firsctx.fillRect (90, 280, 100, 10);
+
+      firsctx.fillStyle = "rgb(54,100,139)";
+      firsctx.fillRect (70, 290, 140, 20);
+
+      firsctx.fillStyle = "rgb(54,100,139)";
+      firsctx.fillRect (70, 310, 20, 20);
+
+      firsctx.fillStyle = "rgb(54,100,139)";
+      firsctx.fillRect (190, 310, 20, 20);
+
+      firsctx.fillStyle = "rgb(54,100,139)";
+      firsctx.fillRect (90, 310, 100, 140);
+      //FIN COL + HABITS
+
+      // PANTALON
+      firsctx.fillStyle = "rgb(23,21,21)";
+      firsctx.fillRect (90, 450, 20, 200);
+      firsctx.fillStyle = "rgb(23,21,21)";
+      firsctx.fillRect (100, 450, 20, 200);
+
+      firsctx.fillStyle = "rgb(23,21,21)";
+      firsctx.fillRect (100, 450, 60, 20);
+
+      firsctx.fillStyle = "rgb(23,21,21)";
+      firsctx.fillRect (170, 450, 20, 200);
+      firsctx.fillStyle = "rgb(23,21,21)";
+      firsctx.fillRect (160, 450, 20, 200);
+      //FIN PANTALON
+
+      // CHAUSSURES + ombre (178,178,178)
+      firsctx.fillStyle = "rgb(170,161,119)";
+      firsctx.fillRect (90, 650, 30, 20);
+
+      firsctx.fillStyle = "rgb(170,161,119)";
+      firsctx.fillRect (160, 650, 30, 20);
+
+      firsctx.fillStyle = "rgb(170,161,119)";
+      firsctx.fillRect (160, 650, 30, 20);
+
+      // firsctx.fillStyle = "rgb(178,178,178)";
+      // firsctx.fillRect (50, 660, 40, 10);
+      //
+      // firsctx.fillStyle = "rgb(178,178,178)";
+      // firsctx.fillRect (120, 660, 40, 10);
+      //
+      // firsctx.fillStyle = "rgb(178,178,178)";
+      // firsctx.fillRect (190, 660, 40, 10);
+
+      //FIN CHAUSSURES + ombre
+
+      // HOVER
+      firsctx.fillStyle = "rgb(203,33,61)";
+      firsctx.fillRect (50, 670, 10, 10);
+
+      firsctx.fillStyle = "rgb(203,33,61)";
+      firsctx.fillRect (60, 670, 160, 10);
+
+      firsctx.fillStyle = "rgb(255,255,255)";
+      firsctx.fillRect (60, 680, 160, 5);
+
+      firsctx.fillStyle = "rgb(203,33,61)";
+      firsctx.fillRect (60, 685, 160, 5);
+
+      firsctx.fillStyle = "rgb(203,33,61)";
+      firsctx.fillRect (220, 670, 10, 10);
+
+      firsctx.fillStyle = "rgb(132,132,132)";
+      firsctx.fillRect (80, 690, 30, 2);
+
+      firsctx.fillStyle = "rgb(132,132,132)";
+      firsctx.fillRect (170, 690, 30, 2);
+
+
+
+      //FIN HOVER
+
+
+      // BRAS
+      firsctx.fillStyle = "rgb(233,223,207)";
+      firsctx.fillRect (70, 330, 20, 150);
+
+      firsctx.fillStyle = "rgb(233,223,207)";
+      firsctx.fillRect (190, 330, 20, 150);
+      //FIN BRAS
+
+      // // SOL
+      //
+      //
+      //
+      // firsctx.fillStyle = "rgb(160,160,160)";
+      // firsctx.fillRect (0, 720, 10000, 30);
+      //
+      // firsctx.fillStyle = "rgb(112,112,112)";
+      // firsctx.fillRect (0, 750, 10000, 30);
+      //
+      // firsctx.fillStyle = "rgb(58,38,7)";
+      // firsctx.fillRect (0, 780, 10000, 150);
+      //
+      // firsctx.fillStyle = "rgb(87,57,10)";
+      // firsctx.fillRect (0, 930, 10000, 150);
+      //
+      //
+      // //FIN SOL
+
+   }
+ }
+
+
+
+  </script>
+
+ </head>
+ <body onload="draw();">
+   <div class="tree-left-right">
+            <div class="background"></div>
+            <div class="background2"></div>
+
+            <div class="line-one"></div>
+            <div class="line-two"></div>
+            <div class="line-three"></div>
+            <div class="line-four"></div>
+            <div class="line-five"></div>
+            <div class="line-six"></div>
+            </div>
+
+            <div class="tree-left-left">
+                     <div class="background22"></div>
+                     <div class="background33"></div>
+                     <div class="line-one2"></div>
+                     <div class="line-two2"></div>
+                     <div class="line-three2"></div>
+                     <div class="line-four2"></div>
+                     <div class="line-five2"></div>
+                     <div class="line-six2"></div>
+                     <div class="line-seven2"></div>
+                     <div class="line-eight2"></div>
+                     </div>
+
+
+                     <div class="tree-right-left">
+                     <div class="background222"></div>
+                     <div class="background2222"></div>
+                     <div class="line-one"></div>
+                     <div class="line-two"></div>
+                     <div class="line-three"></div>
+                     <div class="line-four"></div>
+                     <div class="line-five"></div>
+                     <div class="line-six"></div>
+                     </div>
+   <canvas id="head" width="1000" height="700"></canvas>
+    <!-- <div id="hover">
+      <div id="plateau"></div>
+      <div id="flamme"></div>
+    </div> -->
+   <div id="sol">
+    <div class="coucheone"></div>
+    <div class="couchescond"></div>
+    <div class="couchethree"></div>
+    <div class="coucheofour"></div>
+   </div>
+
+ </body>
+</html>

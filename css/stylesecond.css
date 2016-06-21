@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700,300');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700');
+
+body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  -ms-flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -ms-box-orient: horizontal;
+  box-orient: horizontal;
+}
+
+div#left{
+    display: flex; /* establish flex container */
+    flex-direction: column;
+    width:40%;
+    height: 100vh; /* for demo purposes */
+    background-color: #eee; /* for demo purposes */
+    z-index: -20;
+    display: flex; /* establish flex container */
+    flex-direction: column;  /* make main axis vertical */
+    justify-content: center; /* center items vertically, in this case */
+    align-items: center;
+
+}
+
+div#right{
+        flex:1;
+        background-image: url('../img/ciel42.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+        position: fixed;
+        top:0;
+        right:0;
+        height:100%;
+        width:60%;
+        overflow:hidden;
+        display: flex; /* establish flex container */
+        flex-direction: column;  /* make main axis vertical */
+        justify-content: center; /* center items vertically, in this case */
+        align-items: center;
+}
+
+
+
+h1#logo{
+  font: 700 15em 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1#nom{
+  font: 700 2em 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+
+}
+
+h2#domaine{
+  font: 400 2em 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+
+}
+
+nav{
+  display: inline-flex; /* establish flex container */
+  flex-direction: column; /* make main axis horizontal (default value) */
+  width:auto;
+  position: fixed;
+  top: 40%;
+  right: 55%;
+  z-index: 20;
+}
+
+nav li{
+  list-style: none;
+}
+
+nav li a{
+  padding: 1em;
+  margin: 1em;
+  text-decoration: none;
+  cursor: grab;
+  float: left;
+  transform: rotate(90deg);
+	transform-origin:top right;
+  height: 20%;
+  width: 55%;
+}
+
+li a{
+  color: #434343;
+  font: 400 1.2em 'Roboto', sans-serif;
+
+}
