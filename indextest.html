@@ -192,6 +192,18 @@
         z-index: 1000;
       }
 
+
+      div.first-fixe{
+        position: relative;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        background-image: url('img/ciel42.svg');
+        background-repeat: no-repeat;
+        background-position: top right 40%;
+        z-index: 1000;
+      }
+
       div.left-fixe{
         position: fixed;
         top: 0;
@@ -204,10 +216,10 @@
       }
 
       div.right-fixe{
-        position: absolute;
+        position: relative;
         top: 0;
-        right: 0;
-        width: 90%;
+        left: 150px;
+        width: 80%;
         height: 100vh;
         background: white;
         z-index: -100;
@@ -235,6 +247,26 @@
         z-index: -100;
         padding: 0;
         margin: 0;
+      }
+
+      div#paul8bit{
+        position: absolute;
+        top: 0%;
+        right:0%;
+        width: 410px;
+        height: 100%;
+        background-image: url('img/pousser1.svg');
+        background-size: cover;
+        background-position: 0px 0px;
+        /*-webkit-animation: accueil 1s steps(2, start) infinite ;*/
+        z-index: 8000;
+      }
+
+      @-webkit-keyframes accueil {
+        to{
+          background-position: 400px 0px;
+        }
+
       }
 
       div#pixel{
@@ -267,6 +299,7 @@
         z-index: 500;
         font: 900 3em 'Roboto', sans-serif;
         color: #061617;
+        z-index: 4000;
       }
 
       h3#domaine{
@@ -290,8 +323,8 @@
         bottom: 0;
         left: 350px;
         width: 150px;
-        height: 600px;
-        background-image: url('img/paulprincipal.png');
+        height: 580px;
+        background-image: url('img/spriteplr.png');
         background-size: cover;
         background-repeat: no-repeat;
         z-index: 2000;
@@ -322,10 +355,59 @@
           line-height: 1.5em;
       }
 
+      div#move{
+        position: absolute;
+        top: 20px;
+        left: 125px;
+        z-index: 6000;
+        -webkit-animation: loope 4s infinite none;
+      }
+
+      .stage {
+        position: absolute;
+        margin: auto;
+        background-image: url('img/runcycle.png');
+        background-position: 0px 0px;
+        width: 125px;
+        height: 230px;
+        -webkit-animation: loop .9s steps(4, start) infinite ;
+        z-index:5000;
+      }
+
+    @-webkit-keyframes loop {
+      to{
+        background-position: 500px 0px;
+      }
+
+    }
+
+
+    @-webkit-keyframes loope {
+      from {
+        left:0px;
+      }
+
+
+      to {
+        left: 500px;
+      }
+    }
+
+    @-webkit-keyframes pluie {
+      to {
+        background-position: 200px 0px;
+        top:10px;
+      }
+    }
+
 
     </style>
   </head>
 <body onload="draw();">
+  <div class="first-fixe">
+    <div id="paul8bit"></div>
+
+  </div>
 
   <div class="left-fixe">
     <h1 id="logo">P.</h1>
@@ -335,10 +417,13 @@
 
   <div class="right-fixe">
     <p class="intro">Hey, je suis un jeune développeur & designer web, welcome.</p>
-      <div class="perso"></div>
+      <!-- <div class="perso"></div> -->
     <div id="pixel"></div>
     <!-- <canvas id="head" width="700" height="700"></canvas> -->
-    <div id="perso"></div>
+    <!-- <div id="perso"></div> -->
+    <div id="move">
+      <div class="stage"></div>
+    </div>
 
     <div class="right-content">
       <p class="about">Natif de Valognes, dans la manche, j'ai grandis dans les milieux de l'industrie et de l' artisanat.</p><br>
@@ -353,5 +438,7 @@
         <p></p>
 
     </div>
+    <div id="eau">aze</div>
+  </div>
   </body>
 </html>
