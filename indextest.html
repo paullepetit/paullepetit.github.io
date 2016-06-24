@@ -83,6 +83,7 @@
         right:0%;
         width: 115px;
         height: 220px;
+        will-change:background;
         background-image: url('img/testg.png');
         background-size: cover;
         background-position: 0px 0px;
@@ -92,7 +93,7 @@
       }
 
       @-webkit-keyframes accueil {
-        to{
+        0%{
           background-position: 460px 0px;
         }
 
@@ -110,7 +111,6 @@
         background-size: cover;
         background-repeat: no-repeat;
         z-index: 100;
-        animation: pudge 3s linear infinite alternate;
       }
 
       h1#logo{
@@ -212,9 +212,8 @@
         right: 0px;
         width: 60%;
         height: 100%;
-        -webkit-animation: loopee 4s linear 1 forwards;
+        -webkit-animation: loopeee 8s linear 1 forwards;
         border: 1px solid yellow;
-
       }
 
       div#move{
@@ -263,6 +262,34 @@
 
       to {
         right: 2%;
+      }
+    }
+
+    @-webkit-keyframes loopeee {
+      0%{
+        right:-50%;
+      }
+
+      50% {
+        right: 2%;
+      }
+
+      60% {
+        right: 10%;
+      }
+      70% {
+        right: 20%;
+      }
+      80% {
+        right: 30%;
+      }
+      90% {
+        right: 40%;
+      }
+      100% {
+        right: 50%;
+        /*background-image: url('img/pause2.png');
+        background-repeat: no-repeat;*/
       }
     }
 
